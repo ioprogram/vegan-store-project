@@ -118,7 +118,7 @@ def _check_if_product_exist(df: DataFrame, name: str):
     :param name:
     :return:
     """
-    list_product_idx = df.index[df['name'] == name].tolist()
+    list_product_idx = df.index[df['name'].str.casefold() == name.casefold()].tolist()
     if len(list_product_idx) != 0:
         return list_product_idx[0]
     else:
